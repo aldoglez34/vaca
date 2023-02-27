@@ -5,6 +5,7 @@ import Image from "react-bootstrap/Image";
 import Nav from "react-bootstrap/Nav";
 import { LanguageContext } from "../../context/langageContext";
 import { LanguageSwitch } from "./LanguageSwitch";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 export const Navbar: FC = () => {
   const { displayText } = useContext(LanguageContext);
@@ -23,9 +24,20 @@ export const Navbar: FC = () => {
         <BootstrapNavbar.Toggle />
         <BootstrapNavbar.Collapse className="justify-content-end">
           <Nav className="me-auto">
-            <Nav.Link href="/inidio">{displayText("nav.menu")[0]}</Nav.Link>
-            <Nav.Link href="/sociales">{displayText("nav.menu")[1]}</Nav.Link>
-            <Nav.Link href="/contacto">{displayText("nav.menu")[2]}</Nav.Link>
+            <Nav.Link href="/inidio">{displayText("NAV.MENU")[0]}</Nav.Link>
+            <Nav.Link href="/sociales">{displayText("NAV.MENU")[1]}</Nav.Link>
+            <Nav.Link href="/contacto">{displayText("NAV.MENU")[2]}</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
             <LanguageSwitch />
           </Nav>
         </BootstrapNavbar.Collapse>

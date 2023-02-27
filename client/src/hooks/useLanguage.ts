@@ -1,7 +1,8 @@
 import { get } from "lodash";
 import { useCallback, useMemo } from "react";
 import useLocalStorage from "use-local-storage";
-import { englishStrings, spanishStrings } from "../constants/strings";
+import ENGLISH_STRINGS from "../resources/strings/english";
+import SPANISH_STRINGS from "../resources/strings/spanish";
 
 export const useLanguage = () => {
   const [language, setLanguage] = useLocalStorage<"SPA" | "ENG">(
@@ -10,14 +11,14 @@ export const useLanguage = () => {
   );
 
   const displayText = useCallback(
-    (key: keyof typeof spanishStrings) => {
+    (key: keyof typeof SPANISH_STRINGS) => {
       switch (language) {
         case "SPA":
-          return get(spanishStrings, key, "");
+          return get(SPANISH_STRINGS, key, "");
         case "ENG":
-          return get(englishStrings, key, "");
+          return get(ENGLISH_STRINGS, key, "");
         default:
-          return get(spanishStrings, key, "");
+          return get(SPANISH_STRINGS, key, "");
       }
     },
     [language]

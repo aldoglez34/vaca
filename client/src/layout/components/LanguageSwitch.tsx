@@ -1,11 +1,11 @@
 import { FC, useContext, useMemo } from "react";
 import Switch from "react-switch";
-// import Image from "react-bootstrap/Image";
 import { isEqual } from "lodash";
 import { LanguageContext } from "../../context/langageContext";
+import { Image } from "react-bootstrap";
 
-// const mexico = require("../../images/mexico.png");
-// const usa = require("../../images/united-states.png");
+const mexico = require("../../resources/images/mexico.png");
+const usa = require("../../resources/images/united-states.png");
 
 type LanguageSwitchType = {
   className?: string;
@@ -22,17 +22,15 @@ export const LanguageSwitch: FC<LanguageSwitchType> = ({ className }) => {
     <div {...{ className }}>
       <Switch
         checked={isMexicoChecked}
-        // checkedIcon={<Image alt="México" className="p-1" fluid src={mexico} />}
-        checkedIcon={<span>Español</span>}
+        checkedIcon={<Image alt="México" className="p-1" fluid src={mexico} />}
         className="react-switch"
         height={28}
         offColor="#586071"
         onChange={handleChange}
         onColor="#586071"
-        uncheckedIcon={<span>Inglés</span>}
-        // uncheckedIcon={
-        //   <Image alt="United States" className="p-1" fluid src={usa} />
-        // }
+        uncheckedIcon={
+          <Image alt="United States" className="p-1" fluid src={usa} />
+        }
         width={56}
       />
     </div>
